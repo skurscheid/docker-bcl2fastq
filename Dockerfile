@@ -7,11 +7,7 @@ WORKDIR /tmp
 # anyone knows how to install mcheck.h gracefully on Alpine?
 COPY mcheck.h /usr/include/
 
-RUN apk --no-cache add \
-      alpine-sdk \
-      bash \
-      zlib-dev \
-      libstdc++ \
+RUN apk --no-cache add alpine-sdk bash zlib-dev libstdc++ \
  && wget ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2-20-0-tar.zip \
  && unzip bcl2fastq2-v2-20-0-tar.zip \
  && tar xzvf bcl2fastq2-v2.20.0.422-Source.tar.gz \
@@ -27,6 +23,6 @@ RUN apk --no-cache add \
 
 WORKDIR /
 
-ENTRYPOINT ["bcl2fastq"]
+# ENTRYPOINT ["/bin/bash"]
 
-CMD ["--version"]
+# CMD ["--version"]
