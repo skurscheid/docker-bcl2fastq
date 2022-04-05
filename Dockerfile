@@ -18,7 +18,6 @@ RUN apk --no-cache add alpine-sdk bash zlib-dev libstdc++ \
  && rm /usr/include/mcheck.h \
  && apk --no-cache del \
       alpine-sdk \
-      bash \
       zlib-dev
 
 WORKDIR /
